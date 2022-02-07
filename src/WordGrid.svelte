@@ -13,18 +13,6 @@
             return "cursor"
         }
         return color[i]
-        // switch (color[i]) {
-        //     case "waiting":
-        //         return "background-color: rgb(240, 240, 240); color: black;"
-        //     case "green":
-        //         return "background-color: green; color: white;"
-        //     case "yellow":
-        //         return "background-color: yellow; color: black;"
-        //     case "black":
-        //         return "background-color: black; color: white;"
-        //     default:
-        //         return "background-color: rgb(240, 240, 240); color: black;"
-        // }
     }
 
     function getChar(i){
@@ -39,18 +27,6 @@
     }
 
     async function check(){
-        // if(word != correct){
-        //     await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + word)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if(data.title == "No Definitions Found"){
-        //             dispatch("message", {message: "That's not a word!"})
-        //             word = ""
-        //             color = "waiting,".repeat(correct.length).split(",")
-        //             return
-        //         }
-        //     })
-        // }
 
         let tempCorrect = correct
         let usedG = {}
@@ -67,8 +43,6 @@
             }
         }
 
-        // misplaced = number of matches without greens in correct
-        // find matches between word and tempcorrect
         let misplaced = {}
         for(let i = 0; i < word.length; i++){
             misplaced[word[i]] = countChar(tempCorrect, word[i])

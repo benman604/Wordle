@@ -76,8 +76,8 @@
 <main>
 	<div class="message">
 		<h1>WORDLE</h1> 
-		<a href="#">Github</a> 
-		<a href="#">How to Play</a>
+		<a href="https://github.com/benman604/Wordle">Github</a> 
+		<a href="https://www.powerlanguage.co.uk/wordle/">Origional</a>
 		<br><br>
 		{#if message != ""}
 			<strong>{message}</strong>

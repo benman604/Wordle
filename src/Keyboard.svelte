@@ -1,6 +1,5 @@
 <script>
     import {createEventDispatcher} from 'svelte'
-	const dispatch = createEventDispatcher()
 
     let keys = [
         "qwertyuiop",
