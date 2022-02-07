@@ -1,0 +1,90 @@
+html, body {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	color: #333;
+	margin: 0;
+	padding: 8px;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+a {
+	color: rgb(0,100,200);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: rgb(0,80,160);
+}
+
+label {
+	display: block;
+}
+
+input, button, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	-webkit-padding: 0.4em 0;
+	padding: 0.4em;
+	margin: 0 0 0.5em 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+
+input:disabled {
+	color: #ccc;
+}
+
+button {
+	color: #333;
+	background-color: #f4f4f4;
+	outline: none;
+}
+
+button:disabled {
+	color: #999;
+}
+
+button:not(:disabled):active {
+	background-color: #ddd;
+}
+
+button:focus {
+	border-color: #666;
+}
+
+.black{
+	background-color: black;
+	color: white;
+}
+
+.yellow{
+	background-color: yellow;
+	color: black !important;
+}
+
+.green{
+	background-color: green;
+	color: white;
+}
+
+.waiting{
+	background-color: rgb(240, 240, 240); 
+	color: black !important;
+}
+
+.cursor{
+	background-color: lightgray;
+}
+th.svelte-1p64mb4{width:75px;height:75px;font-size:xx-large;color:white;text-transform:uppercase}
+.row.svelte-jreht7.svelte-jreht7{width:100%;display:flex;align-items:center;justify-content:center}.row.svelte-jreht7 button.svelte-jreht7{margin-left:2px;margin-right:2px;width:35px;height:35px;text-transform:uppercase}
+main.svelte-g9h8lv.svelte-g9h8lv{margin:0;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.message.svelte-g9h8lv .svelte-g9h8lv{margin-right:10px;display:inline}@media only screen and (max-width: 600px), (max-height: 700px){main.svelte-g9h8lv.svelte-g9h8lv{width:100%;top:50px;left:50%;transform:translate(-50%, 0)}table.svelte-g9h8lv.svelte-g9h8lv{margin-left:auto;margin-right:auto}.message.svelte-g9h8lv.svelte-g9h8lv{text-align:center}.message.svelte-g9h8lv .svelte-g9h8lv{display:block}}
