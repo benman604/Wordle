@@ -1,5 +1,4 @@
 <script>
-    import {createEventDispatcher} from 'svelte'
 
     let keys = [
         "qwertyuiop",
@@ -27,7 +26,6 @@
             }
         }
         keycolors = keycolors
-        console.log(keycolors)
     }
 
     window["updateKeyboard"] = updateKeyboard

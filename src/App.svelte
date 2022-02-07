@@ -1,5 +1,6 @@
 <script>
 	import { onMount, createEventDispatcher } from 'svelte';
+	var randomWords = require('random-words')
 	import WordGrid from './WordGrid'
 	import Keyboard from './Keyboard.svelte'
 	let dispatch = createEventDispatcher()
@@ -60,15 +61,11 @@
 
 	onMount(() => {
 		if(word == ""){
-			fetch(`https://fly.wordfinderapi.com/api/search?length=${randInt(5,7)}&dictionary=wwf2&word_sorting=points&group_by_length=true&page_size=1&page_token=${randInt(0, 50)}`)
-			.then(res => res.json())
-			.then(data => {
-				word = data.word_pages[0].word_list[0].word.toLowerCase()
-				// console.log(word)
-				tries = word.length
-				state = 0
-				results = []
-			})
+			word = randomWords({maxLength: 7, minLength: 5, exactly: 1})[0]
+			console.log(word)
+			tries = word.length
+			state = 0
+			results = []
 		}
 	})
 </script>
@@ -131,8 +128,12 @@
 		.message{
 			text-align: center;
 		}
-		.message *{
-			display: block;
-		}
+
+		/* center buttons inside main */
+		/* button{
+			margin-left: auto;
+			margin-right: auto;
+			position: absolute;
+		} */
 	}
 </style>

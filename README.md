@@ -2,6 +2,7 @@
 
 A simple Wordle clone written in Svelte.
 
+![screenshot](wordle-sc-2.png)
 
 ## Get started
 

@@ -27,6 +27,12 @@
     }
 
     async function check(){
+        // if(word != correct && !isWord(word)){
+        //     dispatch("message", {message: "That's not a word!"})
+        //     word = ""
+        //     color = "waiting,".repeat(correct.length).split(",")
+        //     return
+        // }
 
         let tempCorrect = correct
         let usedG = {}
