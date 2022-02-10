@@ -56,4 +56,7 @@
         height: 35px;
         text-transform: uppercase;
     }
+    main{
+        margin-bottom: 50px;
+    }
 </style>

@@ -3,7 +3,6 @@
 	var randomWords = require('random-words')
 	import WordGrid from './WordGrid'
 	import Keyboard from './Keyboard.svelte'
-	let dispatch = createEventDispatcher()
 
 	let word = ""
 	let state = 0
@@ -20,7 +19,7 @@
 			setTimeout(() => {
 				message = ""
 			}, 1000)
-			state--
+			if(message != "That's not a word!") state--
 		} else{
 			let x = event.detail.state
 			results.push(x)
@@ -74,7 +73,7 @@
 	<div class="message">
 		<h1>WORDLE</h1> 
 		<a href="https://github.com/benman604/Wordle">Github</a> 
-		<a href="https://www.powerlanguage.co.uk/wordle/">Origional</a>
+		<a href="https://www.powerlanguage.co.uk/wordle/">Original</a>
 		<br><br>
 		{#if message != ""}
 			<strong>{message}</strong>

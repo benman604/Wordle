@@ -27,7 +27,7 @@
     }
 
     async function check(){
-        // if(word != correct && !isWord(word)){
+        // if(word != correct && !window["w"].includes(word)){
         //     dispatch("message", {message: "That's not a word!"})
         //     word = ""
         //     color = "waiting,".repeat(correct.length).split(",")
