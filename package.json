@@ -13,9 +13,10 @@
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
-    "dev": "webpack serve --content-base public"
+    "dev": "webpack serve"
   },
   "dependencies": {
+    "@alan-ai/alan-sdk-web": "^1.8.32",
     "is-word": "^1.0.4",
     "random-word": "^2.0.0",
     "random-words": "^1.1.2",

@@ -82,6 +82,7 @@
                     check()
                     return
                 }
+                dispatch("message", {message: word + " is not a word!"})
             }
             if(event.key == "Backspace"){
                 word = word.substring(0, word.length - 1)
@@ -90,6 +91,25 @@
             }
         }
     }
+
+    // function wordInput(){
+    //     intent('$(Word)', p => {
+    //         word = p.Word.value;
+    //         if(checkVoiceWord(word)){
+    //             check()
+    //             return
+    //         }
+    //         else{
+    //             p.play('Your word input length is not 5. Please say a 5 letter word.');
+    //         }
+    //     });
+    // }
+    // function checkVoiceWord(checkWord){
+    //     if (checkWord.length == 5){
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
     window["keypress"].push(keypress)
 </script>

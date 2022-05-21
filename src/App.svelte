@@ -1,9 +1,10 @@
 <script>
 	import { onMount, createEventDispatcher } from 'svelte';
-	var randomWords = require('random-words')
+	import { scale } from 'svelte/transition';
 	import WordGrid from './WordGrid'
 	import Keyboard from './Keyboard.svelte'
 	import Allwords from './words.js'
+	import AlanAI from './AlanAI.svelte'
 
 
 	let word = ""
@@ -21,7 +22,6 @@
 			setTimeout(() => {
 				message = ""
 			}, 1000)
-			if(message != "That's not a word!") state--
 		} else{
 			let x = event.detail.state
 			results.push(x)
@@ -65,8 +65,8 @@
 			let aw = Allwords.split("\n")
 			word = aw[randInt(0, aw.length)]
 			//word = randomWords({maxLength: 7, minLength: 5, exactly: 1})[0]
-			console.log(word)
-			tries = word.length
+			// console.log(word)
+			tries = word.length + 1
 			state = 0
 			results = []
 		}
@@ -80,7 +80,9 @@
 		<a href="https://www.powerlanguage.co.uk/wordle/">Original</a>
 		<br><br>
 		{#if message != ""}
-			<strong>{message}</strong>
+			<strong transition:scale>{message}</strong>
+		{:else}
+			<p></p>
 		{/if}
 		{#if state == "win"}
 			<strong>You won!</strong>
@@ -101,6 +103,7 @@
 	</table>
 
 	<Keyboard on:keyclick={handleKeyclick} />
+	<AlanAI/>
 </main>
 
 <style>
