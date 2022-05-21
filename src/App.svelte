@@ -103,7 +103,7 @@
 	</table>
 
 	<Keyboard on:keyclick={handleKeyclick} />
-	<AlanAI/>
+	<AlanAI on:message={handleMessage}/>
 </main>
 
 <style>
@@ -120,7 +120,7 @@
 		display: inline;
 	}
 
-	@media only screen and (max-width: 600px), (max-height: 700px){
+	@media only screen and (max-width: 600px), (max-height: 800px){
 		main{
 			width: 100%;
 			top: 50px;
