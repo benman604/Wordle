@@ -1,5 +1,4 @@
 <script>
-
     let keys = [
         "qwertyuiop",
         "asdfghjkl",

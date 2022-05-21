@@ -3,6 +3,8 @@
 	var randomWords = require('random-words')
 	import WordGrid from './WordGrid'
 	import Keyboard from './Keyboard.svelte'
+	import Allwords from './words.js'
+
 
 	let word = ""
 	let state = 0
@@ -60,7 +62,9 @@
 
 	onMount(() => {
 		if(word == ""){
-			word = randomWords({maxLength: 7, minLength: 5, exactly: 1})[0]
+			let aw = Allwords.split("\n")
+			word = aw[randInt(0, aw.length)]
+			//word = randomWords({maxLength: 7, minLength: 5, exactly: 1})[0]
 			console.log(word)
 			tries = word.length
 			state = 0

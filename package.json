@@ -17,8 +17,10 @@
   },
   "dependencies": {
     "is-word": "^1.0.4",
+    "random-word": "^2.0.0",
     "random-words": "^1.1.2",
     "word-exists": "^1.0.0",
+    "word-stream": "^2.0.0",
     "wordnet": "^2.0.0"
   }
 }

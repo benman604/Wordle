@@ -1,11 +1,10 @@
 <script>
-    import word-stream
-    import random-word
+    // import word-stream
+    // import random-word
     import {createEventDispatcher} from 'svelte'
 	const dispatch = createEventDispatcher();
-    const fs = require('fs');
-    const wordListPath = require('word-list');
-    const wordArray = fs.readFileSync(wordListPath, 'utf8').split('\n');
+	import Allwords from './words.js'
+
 
     export let correct
     export let state
@@ -79,7 +78,7 @@
     function keypress(event){
         if(state == "typing" && word.length <= correct.length){
             if(event.key == "Enter" && word.length == correct.length){
-                if (wordArray.includes(word)){
+                if(Allwords.split("\n").includes(word)){
                     check()
                     return
                 }
