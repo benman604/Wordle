@@ -1,7 +1,11 @@
 <script>
-    
+    import word-stream
+    import random-word
     import {createEventDispatcher} from 'svelte'
-	const dispatch = createEventDispatcher()
+	const dispatch = createEventDispatcher();
+    const fs = require('fs');
+    const wordListPath = require('word-list');
+    const wordArray = fs.readFileSync(wordListPath, 'utf8').split('\n');
 
     export let correct
     export let state
@@ -75,8 +79,10 @@
     function keypress(event){
         if(state == "typing" && word.length <= correct.length){
             if(event.key == "Enter" && word.length == correct.length){
-                check()
-                return
+                if (wordArray.includes(word)){
+                    check()
+                    return
+                }
             }
             if(event.key == "Backspace"){
                 word = word.substring(0, word.length - 1)
