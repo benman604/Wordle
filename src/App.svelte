@@ -7,7 +7,7 @@
 	import AlanAI from './AlanAI.svelte'
 
 
-	let word = ""
+	var word = ""
 	let state = 0
 	let tries = word.length
 	let results = []

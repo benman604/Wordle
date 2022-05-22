@@ -20,6 +20,10 @@
                 for(let fn of window["keypress"]){
                     fn({key: "Enter"})
                 }
+
+                
+                alanBtnInstance.playText("That's a great guess!")
+
             }
             else{
                 dispatch("message", {message: data.word + " is not a word!"})
