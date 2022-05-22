@@ -7,7 +7,7 @@
 	import AlanAI from './AlanAI.svelte'
 
 
-	var word = ""
+	let word = ""
 	let state = 0
 	let tries = word.length
 	let results = []
@@ -65,7 +65,7 @@
 			let aw = Allwords.split("\n")
 			word = aw[randInt(0, aw.length)]
 			//word = randomWords({maxLength: 7, minLength: 5, exactly: 1})[0]
-			// console.log(word)
+			console.log(word)
 			tries = word.length + 1
 			state = 0
 			results = []
@@ -103,7 +103,7 @@
 	</table>
 
 	<Keyboard on:keyclick={handleKeyclick} />
-	<AlanAI on:message={handleMessage}/>
+	<AlanAI on:message={handleMessage} correct={word} bind:state={state}/>
 </main>
 
 <style>
