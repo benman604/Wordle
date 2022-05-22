@@ -69,6 +69,7 @@
             reformatedColors[color[i]].push(word[i])
         }
         window["updateKeyboard"](reformatedColors)
+        window["keycolor"].push(color)
         state = (word == correct) ? "correct" : "incorrect"
         setTimeout(() => {
             dispatch('message', {state: state})

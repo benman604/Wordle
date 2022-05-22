@@ -9,6 +9,11 @@
     var alanBtnInstance = alanBtn({
         key: "7a742499c23cc5ae962949260e3edd9f2e956eca572e1d8b807a3e2338fdd0dc/stage",
         onCommand: function (data) {
+            if(data.error != undefined){
+                dispatch("message", {message: data.error})
+                return
+            }
+            
             let x = data.word
             x = x.toLowerCase()
             x = x.replace(/\s/g, "")
@@ -35,6 +40,7 @@
             }
             else{
                 dispatch("message", {message: data.word + " is not a word!"})
+                alanBtnInstance.playText(data.word + "'s not a word!")
             }
         },
         rootEl: document.getElementById("alan-btn"),

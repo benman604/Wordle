@@ -11,6 +11,7 @@
 	let state = 0
 	let tries = word.length
 	let results = []
+	let shareResultsContent = "Svelte-AlanAI-Wordle "
 
 	window["keypress"] = []
 	window["keycolor"] = []
@@ -27,10 +28,12 @@
 			results.push(x)
 			if(x == "correct"){
 				state = "win"
+				buildResultContent()
 			} 
 			else if(x == "incorrect"){
 				if(state + 1 >= tries){
 					state = "lose"
+					buildResultContent()
 				}
 				else{
 					state++
@@ -42,6 +45,38 @@
 	function handleKeyclick(event){
 		console.log(event.detail.key)
 		return {key: event.detail.key}
+	}
+
+	function buildResultContent(){
+		let score = (state == "win") ? (window["keycolor"].length) : "X"
+		shareResultsContent += score + "/6 \n"
+		for(let row of window["keycolor"]){
+			for(let color of row){
+				if(color == "black"){
+					shareResultsContent += "⬛"
+				}
+				if(color == "green"){
+					shareResultsContent += "🟩"
+				}
+				if(color == "yellow"){
+					shareResultsContent += "🟨"
+				}
+			}
+			shareResultsContent += "\n"
+		}
+	}
+
+	let shareBtnContent = "Share"
+	function copyResults(){
+		navigator.clipboard.writeText(shareResultsContent).then(function() {
+			shareBtnContent = ('Copied results');
+		}, function(err) {
+			shareBtnContent = ('Could not copy text: ', err);
+		});
+
+		setTimeout(() => {
+			shareBtnContent = "Share"
+		}, 2000);
 	}
 
 	function getState(i){
@@ -85,14 +120,20 @@
 			<p></p>
 		{/if}
 		{#if state == "win"}
-			<strong>You won!</strong>
-			<button on:click={()=>{window.location.reload()}}>New Game</button>
+			<div transition:scale>
+				<strong>You won!</strong>
+				<button on:click={copyResults}>{shareBtnContent}</button>
+				<button on:click={()=>{window.location.reload()}}>New Game</button>
+			</div>
 		{/if}
 
 		{#if state == "lose"}
-			<strong>You lost!</strong>
-			<p>The word was {word}.</p>
-			<button on:click={()=>{window.location.reload()}}>New Game</button>
+			<div transition:scale>
+				<strong>You lost!</strong>
+				<p>The word was {word}.</p>
+				<button transition:scale on:click={copyResults}>{shareBtnContent}</button>
+				<button on:click={()=>{window.location.reload()}}>New Game</button>
+			</div>
 		{/if}
 	</div>
 	<br>
@@ -120,7 +161,7 @@
 		display: inline;
 	}
 
-	@media only screen and (max-width: 600px), (max-height: 800px){
+	@media only screen and (max-width: 600px), (max-height: 900px){
 		main{
 			width: 100%;
 			top: 50px;
